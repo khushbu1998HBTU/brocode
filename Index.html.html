@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Power2Create</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 8%;
+            top: 0;
+            right: 0;
+            /*            border: 2px solid black;*/
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            max-height: 10px;
+        }
+
+        header ul {
+
+            right: 5%;
+            position: absolute;
+            display: flex;
+            list-style-type: none;
+            float: right;
+        }
+
+        header ul li {
+            display: inherit;
+            padding: 4%;
+            right: 2%;
+            display: block;
+            font-size: 1.3vw;
+            font-weight: 500;
+            /*            color: black;*/
+            text-align: center;
+
+        }
+
+        span {
+            color: red;
+        }
+
+        .slideshow-container {
+            max-width: 2000px;
+            max-height: 800px;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: flex;
+        }
+
+        .mySlides {
+            display: none;
+            /*            max-height: 800px;*/
+
+
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+
+            width: auto;
+            margin-top: 0;
+            padding: 0;
+            color: rgb(91, 91, 113, 0.7);
+            /*            font-weight: bold;*/
+            font-size: 40px;
+            transition: .6s ease;
+            border-radius: 0 1px 1px 0;
+        }
+
+        .next {
+            right: 1%;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .prev {
+            left: 1%;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .text-link {
+            font-family: sans-serif;
+            font-weight: 400;
+            top: 55%;
+            font-size: 1.5vw;
+            display: flex;
+            color: rgb(91, 91, 113);
+        }
+
+        /*
+        .prev:hover,
+        .next:hover {
+            color: #f2f2f2;
+            background-color: rgba(0, 0, 0, 0.8)
+        }
+*/
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #222428
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot-div {
+
+            position: absolute;
+            right: 45%;
+            bottom: 15%;
+            width: 13%;
+            height: 2%;
+            display: inline-flex;
+
+
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 0.1rem;
+            width: 20%;
+            margin: 3px;
+            background-color: rgb(229, 147, 142);
+
+            display: inline-block;
+            transition: background-color 0.6s ease;
+
+        }
+
+        .active,
+        .dot:hover {
+            background-color: rgb(204, 22, 22);
+        }
+
+
+
+        /*
+        .vline {
+            height: 100%;
+            width: 5%;
+            position: absolute;
+            color: rgb(91, 91, 113);
+
+        }
+*/
+
+        .vl-line {
+            border-left: 1.5px solid rgb(91, 91, 113, 0.7);
+            height: auto;
+            position: absolute;
+            left: 4%;
+
+            top: 0;
+            bottom: 0;
+
+
+        }
+
+        .vr-line {
+            border-left: 1.5px solid rgb(91, 91, 113, 0.7);
+            height: auto;
+            position: absolute;
+            right: 4%;
+            top: 0;
+            bottom: 0;
+        }
+
+        header .imageBox .imageInn {
+            max-height: 60px;
+            max-width: 60px;
+            display: flex;
+            top: 12%;
+            left: 2%;
+            margin-top: 2rem;
+            position: absolute;
+
+        }
+
+        header .imageBox .imageInn img {
+            width: 100%;
+            height: 100%;
+
+
+
+        }
+
+        header .imageBox:hover .hoverImg {
+            display: block;
+
+            transition-duration: 1s ease;
+        }
+
+
+
+        header .imageBox .hoverImg {
+            position: absolute;
+            left: 7%;
+            top: 10%;
+            display: none;
+            max-height: 100px;
+            max-width: 250px;
+            margin-top: 1.5rem;
+
+
+        }
+
+        header .imageBox .hoverImg img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        header .imageBox:hover .hoverImg {
+            display: block;
+            transition-duration: 1s ease;
+        }
+
+        .navbar li a {
+            padding: 30px;
+            font-family: sans-serif;
+            text-decoration: none;
+            color: black;
+            font-size: 1.1rem;
+            border-bottom: 3px solid transparent;
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .navbar {
+            display: inline-block;
+            top: 0;
+        }
+
+        .nav {
+            top: -13%;
+            list-style: none;
+            margin-top: -15px;
+            right: 0;
+            max-height: 10px;
+            /*            padding: 60;*/
+            text-align: center;
+            position: absolute;
+        }
+
+        .nav li {
+            display: block;
+
+        }
+
+        .nav a {
+            display: inherit;
+            /*            padding: 10px;*/
+        }
+
+        .navbar li a:hover {
+            color: black;
+
+
+        }
+
+        .navbar a:hover {
+            border-bottom: 1px solid black;
+            margin-bottom: 10px;
+
+        }
+
+        .navbar .quote :hover {
+            background: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="slideshow-container">
+        <div class="slideshow-inner">
+            <header class="nav-bar">
+                <div class="imageBox">
+                    <div class="imageInn">
+                        <img src="img/arc_favicon.png" alt="Default Image">
+                    </div>
+                    <div class="hoverImg">
+                        <h1>Power<span>2</span>Create</h1>
+                        <!--                        <img src="img/logo.png" alt="Profile Image">-->
+                    </div>
+                </div>
+               
+                <nav class="navbar">
+                    <ul class="nav">
+
+                        <li><a href=""><strong>Company</strong></a></li>
+                        <li><a href=""><strong>Services</strong></a></li>
+                        <li><a href=""><strong>Blogs</strong></a></li>
+                        <li><a href=""><strong>Contact Us</strong></a></li>
+                        <li style="float:right"><a class="quote" href=""><strong>Get a Free Quote</strong></a></li>
+                    </ul>
+                </nav>
+                </div>
+            </header>
+            <div class="mySlides fade">
+
+                <img src='img/gif-1920x1080-web&app.gif' style='width: 100%;' alt="sally lightfoot crab" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Fundraising<br> & Valuation</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Idea Identification <br> & Assessment </strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-idea.gif' style='width: 100%;' alt="fighting nazca boobies" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Web<br> & App</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Business <br>Planning</strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-business-planning.gif' style='width: 100%;' alt="otovalo waterfall" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Idea Identification<br> & Assessment</strong></a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Buliding a Legal <br>Foundation</strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-legal.gif' style='width: 100%;' alt="pelican" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Business <br>Planning</strong></a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Fundraising <br> & Valuation</strong> </a>
+
+            </div>
+            <div class="mySlides fade">
+
+                <img src='img/gif-fundraiser.gif' style='width: 100%;' alt="pelican" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Buliding a Legal<br> Foundation</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Web <br>& App </strong></a>
+
+            </div>
+            <div class="vl-line vline">
+
+            </div>
+            <div class="vr-line vline">
+
+            </div>
+
+        </div>
+
+
+        <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+        <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+
+        <br />
+
+
+        <div class="dot-div" style='text-align: center;'>
+            <span class="dot" onclick='currentSlide(1)'></span>
+            <span class="dot" onclick='currentSlide(2)'></span>
+            <span class="dot" onclick='currentSlide(3)'></span>
+            <span class="dot" onclick='currentSlide(4)'></span>
+            <span class="dot" onclick='currentSlide(5)'></span>
+        </div>
+    </div>
+    <script>
+        var slideIndex = 1;
+
+        var myTimer;
+
+        var slideshowContainer;
+
+        window.addEventListener("load", function() {
+            showSlides(slideIndex);
+            myTimer = setInterval(function() {
+                plusSlides(1)
+            }, 4000);
+
+            slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+
+            slideshowContainer.addEventListener('mouseenter', pause)
+            slideshowContainer.addEventListener('mouseleave', resume)
+        })
+
+
+        function plusSlides(n) {
+            clearInterval(myTimer);
+            if (n < 0) {
+                showSlides(slideIndex -= 1);
+            } else {
+                showSlides(slideIndex += 1);
+            }
+
+
+            if (n === -1) {
+                myTimer = setInterval(function() {
+                    plusSlides(n + 2)
+                }, 4000);
+            } else {
+                myTimer = setInterval(function() {
+                    plusSlides(n + 1)
+                }, 4000);
+            }
+        }
+
+        function currentSlide(n) {
+            clearInterval(myTimer);
+            myTimer = setInterval(function() {
+                plusSlides(n + 1)
+            }, 4000);
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        pause = () => {
+            clearInterval(myTimer);
+        }
+
+        resume = () => {
+            clearInterval(myTimer);
+            myTimer = setInterval(function() {
+                plusSlides(slideIndex)
+            }, 4000);
+        }
+
+    </script>
+</body>
+
+</html>
